@@ -26,7 +26,7 @@ This repository contains the approach we develop to generate temporal meta-facts
 
 * Since we are using the DBpedia endpoint, and we don't have any control of it, to avoid losing the results generated at some point in the execution, we save the results in partial files, which are stored in the 'results' folder. Then these files can be merged into one single file, and use it in order to perform the analyzes of the generated data. 
 
-* If at any point the algorithm stops because of a problem in the DBpedia endpoint, comment the line 713, and uncomment lines 721--722. Furthermore, update the 'startFrom' and 'counter' parameters with the values (see comments) ​​that appear at the terminal where the algorithm is running.
+* If at any point the algorithm stops because of a problem in the DBpedia endpoint, comment the line 713, and uncomment lines 721--722. Furthermore, in the method propaga, update the parameters 'startFrom' and 'counter' with the values (see comments) ​​that appear at the terminal where the algorithm is running.
 
 ### Results
 The file containing all generated meta-facts (obtained after merger of the partial files) is in the 'results' folder under the name 'allnewMFgen.csv', 'allnewMFcons.csv', and 'allnewMFrestr.csv'. We have generated three files since we can have 3 possibles scenarios based on the temporal constraints applied. However, for the data input we use in this work, we only generated results for the generic scencario, which are stored in the file 'allnewMFgen.csv'.
