@@ -4,7 +4,7 @@ Linking time to facts: an approach to enrich knowledge bases with temporal meta-
 
 ## Getting Started
 
-This repository contains the approach we develop to generate temporal meta-facts in order to enrich knowledge bases. In addition to enabling the validity of the facts, we consider that enriching KBs with valid temporal information can help to generate a timeline of events related to an entity of interest (e.g: what happen in Paris from 1995 to 2000). This would make it possible to extract richer information from these sources. 
+This repository contains the approach we develop to generate temporal meta-facts in order to enrich knowledge bases. In addition to enabling the validity of the facts, we consider that enriching KBs with valid temporal information can help to generate a timeline of events related to an entity of interest (e.g: what happen in Paris from 1995 to 2000). Thus making possible to extract richer information from these sources. 
 
 ### Prerequisites
 
@@ -29,21 +29,21 @@ This repository contains the approach we develop to generate temporal meta-facts
 * If at any point the algorithm stops because of a problem in the DBpedia endpoint, comment the line 713, and uncomment lines 721--722. Furthermore, in the method propaga, update the parameters 'startFrom' and 'counter' with the values (see comments) ​​that appear at the terminal where the algorithm is running.
 
 ### Results
-The file containing all generated meta-facts (obtained after merger of the partial files) is in the 'results' folder under the name 'allnewMFgen.csv', 'allnewMFcons.csv', and 'allnewMFrestr.csv'. We have generated three files since we can have 3 possibles scenarios based on the temporal constraints applied. However, for the data input we use in this work, we only generated results for the generic scencario, which are stored in the file 'allnewMFgen.csv'.
+The file containing all generated meta-facts (obtained after merger of the partial files) is in the 'results' folder under the name 'allnewMFgen.csv', 'allnewMFcons.csv', and 'allnewMFrestr.csv'. We have generated three files since we can have 3 possibles scenarios based on the temporal constraints applied. However, for the data input we use in this work, we only generated results for the generic scenario, which are stored in the file 'allnewMFgen.csv'.
 
 
 ## Useful links
 
-* YAGO files we used to collect the input data are available in: [Download](https://www.mpi-inf.mpg.de/departments/databases-and-information-systems/research/yago-naga/yago/downloads/). A database script to load YAGO into a Postgres database is also provided in the download link. In this work, we only use some YAGO (.tsv) themes to recreate a portion of the YAGO database, which are: 
+* The YAGO files we used to collect the input meta-facts are available in: [Download](https://www.mpi-inf.mpg.de/departments/databases-and-information-systems/research/yago-naga/yago/downloads/). A database script to load YAGO into a Postgres database is also provided in the download link. In this work, we only use some YAGO (.tsv) themes to recreate a portion of the YAGO database, which are: 
 ```
 - Taxonomy: yagoSchema, yagoTaxonomy, and yagoTypes.
 - CORE: yagoFacts, yagoLiteralFacts, and yagoDateFacts.
 - Meta: yagoMetaFacts -- temporal and geospatial meta facts of yagoFacts
 ```
 
-* Dbpedia endpoint: https://dbpedia.org/sparql
+* Dbpedia [endpoint](https://dbpedia.org/sparql)
 
-* Wikidata service: https://query.wikidata.org/
+* Wikidata [service](https://query.wikidata.org/)
 
 
 ## Acknowledgements
@@ -52,5 +52,3 @@ This work can only exist thanks to the other sources and efforts publicaly avail
 * The creators of YAGO, DBpedia, and Wikidata. Thank you for providing to the research and academic community such a wonderful base and for making your work available for free.
 
 * Thanks to all people working to maintain the endpoints to query YAGO, DBpedia, and Wikidata.
-    
-
