@@ -16,7 +16,7 @@ This repository contains the approach we design and developed to generate tempor
 
 * rules.csv: This files contains AMIE+ logical rules.
 
-* metafacts.pkl.gz: This file contains the input data.
+* metafacts.pkl.gz: This file contains the input data. It was created from the files stored in csv_files folder.
 
 * Create a folder 'results'. In this folder will be saved the outputs produced by the algorithm.
 
