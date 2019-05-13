@@ -4,7 +4,7 @@ Linking time to facts: an approach to enrich knowledge bases with temporal meta-
 
 ## Getting Started
 
-This repository contains the approach we develop to generate temporal meta-facts in order to enrich knowledge bases. In addition to enabling the validity of the facts, we consider that enriching KBs with valid temporal information can help to generate a timeline of events related to an entity of interest (e.g: what happen in Paris from 1995 to 2000). Thus making possible to extract richer information from these sources. 
+This repository contains the approach we design and developed to generate temporal meta-facts in order to enrich knowledge bases. In addition to enabling the validity of the facts, we consider that enriching KBs with valid temporal information can make possible to extract richer information from these sources. For example, to generate a timeline of events related to an entity of interest (e.g: what happened in Paris from 1995 to 2000?). 
 
 ### Prerequisites
 
