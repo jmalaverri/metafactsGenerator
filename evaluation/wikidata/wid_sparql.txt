@@ -1,0 +1,193 @@
+﻿#hasChild
+SELECT distinct ?p ?pId ?pLabel ?childId ?childLabel ?date WHERE {
+  ?p wdt:P31 wd:Q5 .
+#  ?p wdt:P21 wd:Q6581097 .
+  ?p wdt:P40 ?child .
+  ?child wdt:P569 ?date .
+  FILTER (REGEX(STR(?date),"[0-9]{4}-[0-9]{2}-[0-9]{2}"))
+ 
+  bind( strafter( str(?p), "entity/" ) as ?pId )
+  bind( strafter( str(?child), "entity/" ) as ?childId )
+
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
+LIMIT 70000
+
+
+#directed
+SELECT DISTINCT ?film ?filmId ?filmLabel ?directorId ?directorLabel ?date
+WHERE
+{
+        ?film wdt:P31 wd:Q11424
+              ;wdt:P345 ?imdbId
+              ;wdt:P57 ?director               
+              ;wdt:P577 ?date .
+ 
+  bind( strafter( str(?film), "entity/" ) as ?filmId )
+  bind( strafter( str(?director), "entity/" ) as ?directorId )
+ 
+        SERVICE wikibase:label {
+            bd:serviceParam wikibase:language "en" .
+        }
+}
+LIMIT 100000
+
+
+#created
+SELECT DISTINCT ?person ?personId ?personLabel ?workId ?notablework ?notableworkLabel  ?date
+WHERE
+{
+        ?person wdt:P31 wd:Q5
+              ;wdt:P800 ?notablework .
+         ?notablework wdt:P577 ?date.
+ 
+  bind( strafter( str(?person), "entity/" ) as ?personId )
+  bind( strafter( str(?notablework), "entity/" ) as ?workId )
+ 
+        SERVICE wikibase:label {
+            bd:serviceParam wikibase:language "en" .
+        }
+}
+LIMIT 100000
+
+
+#edited
+SELECT DISTINCT ?editor ?editorId ?editorLabel ?filmId ?filmLabel ?date
+WHERE
+{
+        ?film wdt:P31 wd:Q11424
+              ;wdt:P345 ?imdbId
+              ;wdt:P1040 ?editor               
+              ;wdt:P577 ?date .
+ 
+  bind( strafter( str(?editor), "entity/" ) as ?editorId )
+  bind( strafter( str(?film), "entity/" ) as ?filmId )
+ 
+        SERVICE wikibase:label {
+            bd:serviceParam wikibase:language "en" .
+        }
+}
+LIMIT 100000
+
+
+#isMarriedTo
+SELECT DISTINCT ?p ?pId ?pLabel ?spId ?spLabel ?start ?end
+WHERE
+{
+        ?p wdt:P31 wd:Q5 .
+        ?p p:P26 ?spouse .
+        ?spouse  ps:P26  ?sp .
+        ?spouse  pq:P580 ?start  .  
+        OPTIONAL { ?spouse  pq:P582 ?end  .
+                   FILTER (REGEX(STR(?end),"[0-9]{4}-[0-9]{2}-[0-9]{2}"))               
+        }
+        FILTER (REGEX(STR(?start),"[0-9]{4}-[0-9]{2}-[0-9]{2}"))
+
+
+ 
+        bind( strafter( str(?p), "entity/" ) as ?pId )
+        bind( strafter( str(?sp), "entity/" ) as ?spId )
+ 
+        SERVICE wikibase:label {
+            bd:serviceParam wikibase:language "en" .
+        }
+}
+LIMIT 100000
+
+
+#worksAt
+SELECT ?person ?pId ?personLabel ?compId ?works_at_companyLabel ?start ?end  
+WHERE {
+  ?person wdt:P31 wd:Q5 .
+  ?person p:P108 ?company .
+  ?company ps:P108 ?works_at_company .
+  ?company pq:P580 ?start.
+ 
+  OPTIONAL { ?company pq:P582 ?end . }
+#  FILTER (REGEX(STR(?start),"[0-9]{4}-[0-9]{2}-[0-9]{2}"))
+ # FILTER (REGEX(STR(?end),"[0-9]{4}-[0-9]{2}-[0-9]{2}"))
+ 
+  bind( strafter( str(?person), "entity/" ) as ?pId )
+  bind( strafter( str(?works_at_company), "entity/" ) as ?compId )
+
+
+ SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
+LIMIT 90000
+
+
+#graduatedFrom
+SELECT ?person ?pId ?personLabel ?instId ?educated_atLabel ?start ?end   
+WHERE {
+  ?person wdt:P31 wd:Q5 .
+  ?person p:P69 ?institution .
+  ?institution ps:P69 ?educated_at .
+  ?institution pq:P580 ?start.
+  OPTIONAL { ?institution  pq:P582 ?end  . }  
+ # FILTER (REGEX(STR(?start),"[0-9]{4}-[0-9]{2}-[0-9]{2}"))
+ # FILTER (REGEX(STR(?end),"[0-9]{4}-[0-9]{2}-[0-9]{2}"))
+ 
+  bind( strafter( str(?person), "entity/" ) as ?pId )
+  bind( strafter( str(?educated_at), "entity/" ) as ?instId )
+
+
+ SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
+LIMIT 90000
+
+#hasAcademicAdvisor ---doesn’t have 'start' and 'end' property. Just point in time
+SELECT ?supervisor ?supId ?supervisorLabel ?pId ?personLabel ?start ?end
+WHERE {
+  ?person wdt:P31 wd:Q5 .
+  ?person p:P184 ?student .
+  ?student ps:P184 ?supervisor .
+  ?student pq:P585 ?start .
+
+        bind( strafter( str(?supervisor), "entity/" ) as ?supId )
+        bind( strafter( str(?person), "entity/" ) as ?pId )
+ 
+        SERVICE wikibase:label {
+            bd:serviceParam wikibase:language "en" .
+        }
+}
+LIMIT 100000
+
+
+#isAffiliatedTo
+SELECT ?p ?pId ?pLabel ?instId ?member_of_partyLabel ?start ?end WHERE {
+ ?p wdt:P21 wd:Q6581097.
+ ?p p:P102 ?partyName.
+ ?partyName ps:P102 ?member_of_party .
+ ?partyName pq:P580 ?start.
+ 
+  FILTER (REGEX(STR(?start),"[0-9]{4}-[0-9]{2}-[0-9]{2}"))
+  OPTIONAL { ?partyName  pq:P582 ?end  .
+                FILTER (REGEX(STR(?end),"[0-9]{4}-[0-9]{2}-[0-9]{2}"))   
+               }
+ 
+  bind( strafter( str(?p), "entity/" ) as ?pId )
+  bind( strafter( str(?member_of_party), "entity/" ) as ?instId )
+ 
+        SERVICE wikibase:label {
+            bd:serviceParam wikibase:language "en" .
+        }
+}
+
+#playsFor
+SELECT ?player ?pId ?playerLabel ?instId ?member_of_sports_teamLabel ?start ?end WHERE {
+ ?player (wdt:P106/wdt:P279*) wd:Q937857.
+ ?player wdt:P21 wd:Q6581097.
+ ?player p:P54 ?teamName.
+ ?teamName ps:P54 ?member_of_sports_team .
+ ?teamName pq:P580 ?start.
+  OPTIONAL { ?teamName  pq:P582 ?end  . }
+ 
+  bind( strafter( str(?player), "entity/" ) as ?pId )
+  bind( strafter( str(?member_of_sports_team), "entity/" ) as ?instId )
+ 
+        SERVICE wikibase:label {
+            bd:serviceParam wikibase:language "en" .
+        }
+}
+LIMIT 80000
