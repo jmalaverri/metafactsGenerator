@@ -414,7 +414,7 @@ def propaga(confidence=0.5, coverage=0.04, lim=10, batchsize=10, startFrom=0, co
                     procounter += 1
                     if procounter < startFrom:
                         continue
-                    # DONE in case of error continue until C >= last C printed
+                    # In case of error continue until C >= last C printed
                     if c == lim:
                         break
                     c += 1
