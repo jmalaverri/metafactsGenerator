@@ -48,9 +48,10 @@ The file containing all generated meta-facts (obtained after merger of the parti
 
 ## Acknowledgements
 
-* We would like to thank to Labex DigiCosme, VASTE (Veracity Assesment in Spatio-TEmporal heterogeneous data) project for the financial support for the developement of this work.
+* We would like to thank to Labex DigiCosme, VASTE (Veracity Assesment in Spatio-TEmporal heterogeneous data) project for the financial support for the development of this work.
 
 This work can only exist thanks to the other sources and efforts publicaly available. In particular, we would like to thank:
-* The creators of YAGO, DBpedia, and Wikidata. Thank you for providing to the research and academic community such a wonderful base and for making your work available for free.
+* The creators of YAGO, DBpedia, and Wikidata. Thank you for providing to the research community such a wonderful base and for making your work available for free.
+* The creators of AMIE+ [rules](https://www.mpi-inf.mpg.de/departments/databases-and-information-systems/research/yago-naga/amie/). Thank you for the tool and detail information you made publicly available.
 
 * Thanks to all people working to maintain the endpoints to query YAGO, DBpedia, and Wikidata.
