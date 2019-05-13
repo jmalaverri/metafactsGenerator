@@ -52,9 +52,13 @@ All data and tools we use to evaluate the results are stored in the folder 'eval
 ## Acknowledgements
 
 * We would like to thank to Labex DigiCosme, VASTE (Veracity Assesment in Spatio-TEmporal heterogeneous data) project for the financial support for the development of this work.
+* This solution would not have been possible without the invaluable contribution and weekly meetings of Professors Fatiha Saiis and Gianluca Quercini.
 
 This work can only exist thanks to the other sources and efforts publicaly available. In particular, we would like to thank:
 * The creators of YAGO, DBpedia, and Wikidata. Thank you for providing to the research community such a wonderful base and for making your work available for free.
 * The creators of AMIE+ [rules](https://www.mpi-inf.mpg.de/departments/databases-and-information-systems/research/yago-naga/amie/). Thank you for the tool, files, and detailed information you made publicly available.
-
 * Thanks to all people working to maintain the endpoints to query YAGO, DBpedia, and Wikidata.
+
+* Also thanks to my friend Luis Martin for his invaluable support and insights during the development of this code.
+
+
