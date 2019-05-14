@@ -59,6 +59,6 @@ This work can only exist thanks to the other sources and efforts publicaly avail
 * The creators of AMIE+ [rules](https://www.mpi-inf.mpg.de/departments/databases-and-information-systems/research/yago-naga/amie/). Thank you for the tool, files, and detailed information you made publicly available.
 * Thanks to all people working to maintain the endpoints to query YAGO, DBpedia, and Wikidata.
 
-* Also thanks to my friend Luis Martin for his invaluable support and insights during the development of this code.
+* Also thanks to my friend Luis Martin for his invaluable support during the development of this code.
 
 
